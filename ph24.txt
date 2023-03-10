@@ -1,0 +1,184 @@
+#TAKING MULTIPLE INPUTS IN ONE LINE USING MAP
+
+a=list(map(int,input().split(' ')))
+
+for i in a:
+    print(i,end=' ')
+    
+
+
+#TAKING MULTIPLE INPUTS IN ONE LINE USING MAP
+
+a=list(map(int,input().split(',')))
+
+for i in a:
+    print(i,end=' ')
+
+
+#TAKING MULTIPLE INPUTS IN ONE LINE AND ADDING
+
+a=list(map(int,input().split(' ')))
+
+sum=0
+for i in a:
+    sum=sum+i
+print(sum)
+
+
+#TAKING MULTIPLE IN ONE LINE AND ADDING BY GIVING MAXSIZE
+
+n=int(input("enter size"))
+a=list(map(int,input().split(' ')))[n:]
+
+total=0
+
+for i in a:
+    total=total+i
+print(total)
+
+
+#BINARY TREE IMPLEMENTATION
+
+class BinaryTreeNode:
+    def __init__(self,data):
+        self.data=data
+        self.leftchild=None
+        self.rightchild=None
+node1 = BinaryTreeNode(50)
+node2 = BinaryTreeNode(20)
+node3 = BinaryTreeNode(45)
+node4 = BinaryTreeNode(11)
+node5 = BinaryTreeNode(15)
+node6 = BinaryTreeNode(30)
+node7 = BinaryTreeNode(78)
+
+node1.leftchild = node2
+node1.rightchild = node3
+node2.leftchild = node4
+node2.rightchild = node5
+node3.leftchild = node6
+node3.rightchild = node7
+
+print("Root child is: ")
+print(node1.data)
+
+print("Left child of the node1 is: ")
+print(node1.leftchild.data)
+
+print("Right child of the node1 is:")
+print(node1.rightchild.data)
+
+print("Root child is:")
+print(node2.data)
+
+print("Left child of the node2 is:")
+print(node2.leftchild.data)
+
+print("Right child of the node2 is:")
+print(node2.rightchild.data)
+
+print("Root child is:")
+print(node3.data)
+
+print("Left child of the node3 is:")
+print(node3.leftchild.data)
+
+print("Right child of the node3 is:")
+print(node3.rightchild.data)
+
+
+#INSERTION IN BINARY TREE
+
+class newNode():
+    def __init__(self,data):
+        self.key=data
+        self.left=None
+        self.right=None
+def inorder(temp):
+    if(not temp):
+        return
+    inorder(temp.left)
+    print(temp.key,end=" ")
+    inorder(temp.right)
+def insert(temp,key):
+    if not temp:
+        root=newNode(key)
+        return
+    q=[]
+    q.append(temp)
+    print(type(q))
+    print(len(q))
+    
+    while(len(q)):
+        print(len(q))
+        temp=q[0]
+        q.pop(0)
+
+        if (not temp.left):
+            temp.left=newNode(key)
+            break
+        else:
+            q.append(temp.left)
+        if(not temp.right):
+            temp.right=newNode(key)
+            break
+        else:
+            q.append(temp.right)
+
+if __name__=="__main__":
+    root=newNode(10)
+    root.left=newNode(11)
+    root.left.left=newNode(7)
+    root.right=newNode(9)
+    root.right.left=newNode(15)
+    root.right.right=newNode(8)
+
+    print("Inorder traversal before insertion:",end=" ")
+    inorder(root)
+    key=12
+    insert(root,key)
+    print()
+    print("Inorder traversal after insertion:",end=" ")
+    inorder(root)
+    
+
+class Node:
+    def __init__(self,key):
+        self.left=None
+        self.right=None
+        self.val=key
+def printInorder(root):
+    if root:
+        printInorder(root.left)
+        print(root.val,end=" "),
+        printInorder(root.right)
+
+def printPostorder(root):
+    if root:
+        printPostorder(root.left)
+        printPostorder(root.right)
+        print(root.val,end=" "),
+
+def printPreorder(root):
+    if root:
+        print(root.val,end=" "),
+        printPreorder(root.left)
+        printPreorder(root.right)
+
+root=Node(1)
+root.left=Node(2)
+root.right=Node(3)
+root.left.left=Node(4)
+root.left.right=Node(5)
+print("PRE-ORDER:")
+printPreorder(root)
+print()
+print("\nIN-ORDER:")
+printInorder(root)
+print()
+print("\nPOST-ORDER:")
+printPostorder(root)
+print()
+
+
+        
